@@ -4,7 +4,7 @@
 <style>
   .thumbnail { height: 280px !important; }
   .btn-droppable { width: 180px; height: 30px; padding: 4px; }
-  .btn-draggable { width: 160px;  margin: 4px;  }
+  .btn-draggable { width: 160px; margin: 4px; }
 </style>
 <div>
   <div class='contentWrapper ng-cloak'>
@@ -12,31 +12,33 @@
       <div class="row-fluid">
         <ul class="thumbnails">
           <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail">
-              <div ng-model='backlog' droppable drop="handleDrop" id='{{item.id}}' ng-repeat="item in backlog"draggable class="btn btn-info btn-draggable"  ng-show="item.title" >{{item.title}}
-               </div> 
-            </div>
-          </li>
-          <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail">
-                <div  ng-model='in_progress'  droppable drop="handleDrop" id='{{item.id}}' ng-repeat="item in in_progress" draggable  class="btn btn-info btn-draggable"   ng-show="item.title" >{{item.title}} 
-                </div>
-            </div>
-          </li>
-          <!-- <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail" data-drop="true" ng-model='done' jqyoui-droppable="{multiple:true}">
+            <div class="thumbnail" data-drop="true" ng-model='backlog'>
               <div class="caption">
-                <div data-drag="true" jqyoui-droppable="{onDrop:'updateCard({title: item.id, status: 3})'}" class="btn btn-info btn-draggable" ng-repeat="item in done" ng-show="item.title" >{{item.title}}</div>
+                <div class="btn btn-info btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="ib" jqyoui-draggable="{animate:true}" ng-hide="!ib.title" ng-repeat="ib in backlog" >{{ib.title}}</div>
               </div>
             </div>
           </li>
           <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail" data-drop="true" ng-model='closed' jqyoui-droppable="{multiple:true}">
+            <div class="thumbnail" data-drop="true" ng-model='in_progress'>
               <div class="caption">
-                <div data-drag="true" jqyoui-droppable="{onDrop:'updateCard({title: item.id, status: 4})'}"  class="btn btn-info btn-draggable" ng-repeat="item in closed" ng-show="item.title" >{{item.title}}</div>
+                <div class="btn btn-info btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="iip" jqyoui-draggable="{animate:true}" ng-hide="!iip.title" ng-repeat="iip in in_progress" >{{iip.title}}</div>
               </div>
             </div>
-          </li> -->
+          </li>
+          <li class="span3" style='margin-left:10px;'>
+            <div class="thumbnail" data-drop="true"  ng-model='done' >
+              <div class="caption">
+                <div class="btn btn-info btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="ido" jqyoui-draggable="{animate:true}" ng-hide="!ido.title" ng-repeat="ido in done" >{{ido.title}}</div>
+              </div>
+            </div>
+          </li>
+          <li class="span3" style='margin-left:10px;'>
+            <div class="thumbnail" data-drop="true"  ng-model='closed' >
+              <div class="caption">
+                <div class="btn btn-info btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="icl" jqyoui-draggable="{animate:true}" ng-hide="!icl.title" ng-repeat="icl in closed" >{{icl.title}}</div>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

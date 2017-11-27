@@ -91,17 +91,16 @@ angular.module( 'myApp' ).controller("CardDashboardCtr", ['$scope', '$http', '$r
   function($scope, $http, $resource, Cards, Card, $location, $timeout) {
 
   $scope.cards = Cards.query();
-  console.log($scope.cards);
-  $scope.backlog = _.find($scope.cards, { 'status_id': 1} );
-  $scope.in_progress = _.find($scope.cards, { 'status_id': 2} );
-  $scope.done = _.find($scope.cards, { 'status_id': 4} );
-  $scope.closed = _.find($scope.cards, { 'status_id': 5} );
+
+  
   $timeout(function(){
-    $scope.backlog = _.find($scope.cards, { 'status_id': 1} );
-    $scope.in_progress = _.find($scope.cards, { 'status_id': 2} );
-    $scope.done = _.find($scope.cards, { 'status_id': 4} );
-    $scope.closed = _.find($scope.cards, { 'status_id': 5} );
-   }, 100)
+    console.log($scope.cards.length);
+    console.log(_.filter($scope.cards, { 'status_id': 1} ));
+    $scope.backlog = _.filter($scope.cards, { 'status_id': 1} );
+    $scope.in_progress = _.filter($scope.cards, { 'status_id': 2} );
+    $scope.done = _.filter($scope.cards, { 'status_id': 4} );
+    $scope.closed = _.filter($scope.cards, { 'status_id': 5} );
+  }, 100)
 
 
   $scope.updateCard = function (cardId, status) {
