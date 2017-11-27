@@ -1,0 +1,23 @@
+<div class="form-group" ng-class="{'has-error' : submitted && cardForm.title.$invalid}">
+    <label class="control-label col-md-3">Title <span class="required">* </span> </label>
+    <div class="col-md-4">
+        <input type="text" name="title" class="form-control" ng-model="card.title" required placeholder="Title"/>
+    </div>
+    <p ng-show=" submitted && cardForm.title.$invalid" class="help-block">Title is required.</p>
+</div>
+
+<div class="form-group" ng-class="{'has-error' : submitted && cardForm.description.$invalid}">
+    <label class="control-label col-md-3">Description <span class="required">* </span> </label>
+    <div class="col-md-4">
+        <textarea name="description" class="form-control" ng-model="card.description" required placeholder="Description"></textarea>
+    </div>
+    <p ng-show=" submitted && cardForm.description.$invalid" class="help-block">Description is required.</p>
+</div>
+
+<div class="form-group">
+    <div class="pull-left">
+        <a class="btn btn-default" href="/"> Back</a>
+        <button type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button>
+    </div>
+</div>
+
