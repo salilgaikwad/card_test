@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+statuses = ['Backlog', 'In Progress', 'QA', 'Done', 'Closed']
+statuses.each do |status|
+  Status.create!(name: status)
+end
+
+priorities = %w(Low Medium High)
+priorities.each do |priority|
+  Priority.create!(name: priority)
+end
