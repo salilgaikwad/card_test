@@ -5,8 +5,8 @@ class CreateCards < ActiveRecord::Migration
       t.integer :creator_id
       t.string :title
       t.text :description
-      t.integer :status
-      t.integer :priority
+      t.integer :status_id
+      t.integer :priority_id
 
       t.timestamps null: false
     end

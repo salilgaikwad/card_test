@@ -1,26 +1,26 @@
 <br/>
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-primary" href="#/users/new">Create a user</a>
-        <h3 class="block">Users</h3>
+        <a class="btn btn-primary" href="#!/cards/new">Create a card</a>
+        <h3 class="block">Cards</h3>
         <table class="table table-striped">
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Priority</th>
                 <th></th>
             </tr>
-            <tr ng-hide="users.length" >
-                <td colspan="5">No users found, Please create one.</td>
+            <tr ng-hide="cards.length" >
+                <td colspan="5">No cards found, Please create one.</td>
             </tr>
-            <tr ng-show="users.length" ng-repeat="user in users">
-                <td>{{user.first_name}}</td>
-                <td>{{user.last_name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.phone}}</td>
+            <tr ng-show="cards.length" ng-repeat="card in cards">
+                <td>{{card.title}}</td>
+                <td>{{card.description}}</td>
+                <td>{{card.status_id}}</td>
+                <td>{{card.priority_id}}</td>
                 <td>
-                    <a href="#/users/{{user.id}}/edit">Edit</a> | <a href="" ng-click="deleteUser(user.id)">Remove</a>
+                    <a href="#!/cards/{{card.id}}/edit">Edit</a> | <a href="" ng-click="deleteCard(card.id)">Remove</a>
                 </td>
             </tr>
         </table>

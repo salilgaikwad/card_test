@@ -8,6 +8,7 @@
 //= require jquery-ui
 //= require angular
 //= require angular-dragdrop
+//= require lodash
 //= require angular-route
 //= require angular-resource
 //= require angular-touch
@@ -19,4 +20,5 @@
 //= require_tree ./controllers
 //= require_tree ./directives
 //= require_tree ../templates
+
 

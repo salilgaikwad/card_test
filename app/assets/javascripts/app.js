@@ -1,5 +1,13 @@
 'use strict';
 
+
+
+var loadash = angular.module('loadash', []);
+loadash.factory('_', ['$window', function() {
+  return $window._;
+}]);
+
+
 // Main module of the application.
 
 angular.module( 'myApp',
@@ -10,6 +18,7 @@ angular.module( 'myApp',
     'ngResource',
     'ngRoute',
     'ngDragDrop',
+    'loadash',
   ]
 ).config( ['$routeProvider', function( $routeProvider ) {
   // Specifying the route provider as a string above ensures that the correct angular provider
@@ -22,6 +31,7 @@ angular.module( 'myApp',
   $routeProvider.when('/cards', { templateUrl: 'cards/index.html', controller: 'CardListCtr' });
   $routeProvider.when('/cards/new', { templateUrl: 'cards/new.html', controller: 'CardAddCtr' });
   $routeProvider.when('/cards/:id/edit', { templateUrl: 'cards/edit.html', controller: "CardUpdateCtr" });  
+  $routeProvider.when('/dashboard', { templateUrl: 'cards/dashboard.html', controller: 'CardDashboardCtr' });
 
   $routeProvider.otherwise( { redirectTo: '/' } );
 } ] );

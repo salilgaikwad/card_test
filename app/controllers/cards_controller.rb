@@ -1,18 +1,20 @@
 class CardsController < ApplicationController
 
+  skip_authorization_check
   before_action :get_card, except: [:index, :create]
   respond_to :html, :json
 
   def index
-    @card = Card.all
+    @cards = Card.all
     respond_with(@cards) do |format|
-      format.json { render :json => @card.as_json }
+      format.json { render :json => @cards.as_json }
       format.html
     end
   end
 
   def create
     @card = Card.new(card_params)
+    @card.creator_id = current_user.id
     if @card.save
       render json: @card.as_json, status: :ok
     else
@@ -40,7 +42,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.fetch(:card, {}).permit(:first_name, :last_name, :email, :phone])
+    params.fetch(:card, {}).permit(:assignee_id, :title, :description, :status_id, :assignee_id, :priority_id)
   end
 
   def get_card

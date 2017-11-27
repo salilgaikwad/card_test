@@ -47,5 +47,6 @@ gem 'binding_of_caller'
 # Keep your server logs clean
 gem 'quiet_assets'
 gem 'webrick'
-
+gem 'sidekiq'
+gem 'lodash-rails'
 
